@@ -1,4 +1,4 @@
-FROM opensuse/leap:15.0
+FROM opensuse/leap:15.1
 MAINTAINER SUSE Containers Team <containers@suse.com>
 
 # Install the entrypoint of this image.
@@ -30,8 +30,8 @@ RUN chmod +x /init && \
     done; \
     rm -rf $TMPDIR && \
     # Now add the repository and install portus.
-    zypper ar -f obs://devel:languages:ruby/openSUSE_Leap_15.0 ruby && \
-    zypper ar -p 1 -f obs://Virtualization:containers:Portus/openSUSE_Leap_15.0 portus && \
+    zypper ar -f obs://devel:languages:ruby/openSUSE_Leap_15.1 ruby && \
+    zypper ar -p 1 -f obs://Virtualization:containers:Portus/openSUSE_Leap_15.1 portus && \
     zypper ref -f && \
     zypper -n in --from portus --details ruby-common portus && \
     zypper clean -a && \
